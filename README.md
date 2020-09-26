@@ -1,5 +1,7 @@
 ## Gutacion
 
+-   Archivo Gutacion.docx Explicando problematica y prototipo a solucion.
+
 -   Aplicacion realizada para visualizar y almacenar los datos de humedad en el area rural (Campo)
     Para el control de riego de agua en las parcelas.
 
