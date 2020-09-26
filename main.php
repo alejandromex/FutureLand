@@ -9,6 +9,7 @@
             else{
                 header("Location: index.php");
             }
+
         ?>
         
         <!-- Navbar -->

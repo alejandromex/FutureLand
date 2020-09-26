@@ -34,3 +34,15 @@ html {
     min-height: 400px;
   }
 
+  .registros{
+    padding: 8px;
+  }
+
+  .informacion{
+    max-width: 500px;
+    margin: 0 auto;
+    padding:5px;
+    
+  }
+
+

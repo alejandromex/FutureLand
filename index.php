@@ -4,6 +4,13 @@
     require 'controladores/usuario.controlador.php';
     require 'modelos/usuarios.modelo.php';
     session_start();
+    if(isset($_SESSION['login']))
+    {
+        if($_SESSION['login']=='ok')
+        {
+            header("Location: main.php");
+        }
+    }
 ?>
     <!-- Login -->
     <div class="container">

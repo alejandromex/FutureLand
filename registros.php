@@ -22,6 +22,7 @@ else{
 $conectar = Conectar::ejecutar("select * from humedad");
 
 ?>
+<div class="container">
 
 <table class="table table-bordered text-center table-dark">
   <thead>
@@ -48,7 +49,7 @@ $conectar = Conectar::ejecutar("select * from humedad");
 
 </div>
 
-<nav aria-label="Page navigation example">
+<nav aria-label="Page navigation example ">
   <ul class="pagination justify-content-center">
     <li class="page-item disabled">
       <a class="page-link" href="#" tabindex="-1">Anterior</a>
@@ -61,5 +62,6 @@ $conectar = Conectar::ejecutar("select * from humedad");
     </li>
   </ul>
 </nav>
+</div>
 
 <?php require_once 'includes/footer.php'; ?>

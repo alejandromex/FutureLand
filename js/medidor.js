@@ -1,8 +1,57 @@
 $( document ).ready(function() {
-  ajustarMedidor();
-function ajustarMedidor()
-{
-      google.charts.load('current', {'packages':['gauge']});
+  const btnOn = $("#btnOn");
+  const btnOff= $("#btnOff");
+  const btnInicio = $("#btnInicio");
+  var prendido = false;
+  var myVar;
+
+  var validar = localStorage.getItem("on");
+  console.log(validar);
+    if(validar == 'true')
+    {
+    prendido = true;
+    ajustarMedidor();
+    }
+    if(validar == 'false')
+    {
+
+      prendido = false;
+      ajustarMedidor();
+    }
+
+  
+
+
+
+
+  btnOn.click(function(){
+    prendido = true;
+    if(prendido)
+    {
+      ajustarMedidor();
+      localStorage.setItem("on",true);
+      swal("Medidor", "Medidor Encendido", "success");
+
+
+    }
+   
+  })
+
+  btnOff.click(()=>{
+    prendido = false;
+    clearInterval(myVar);
+    localStorage.setItem("on",false);
+    swal("Medidor", "Medidor Apagado", "warning");
+
+  })
+
+
+
+
+    function ajustarMedidor()
+    {
+     
+        google.charts.load('current', {'packages':['gauge']});
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var humedad = $(".letreroHumedad");
@@ -31,8 +80,10 @@ function ajustarMedidor()
         var chart = new google.visualization.Gauge(document.getElementById('Medidores'));
 
         chart.draw(data, options);
+        if(prendido)
+        {
+        myVar = setInterval(function(){
 
-        setInterval(function(){
           var numero = 40+ Math.round(60*Math.random());
 
           data.setValue(0,1,numero);
@@ -61,11 +112,16 @@ function ajustarMedidor()
             humedad.addClass('alert-danger');
             humedad.text("Humedad baja, regar de inmediato");
           }
+          console.log(prendido);
         },1300);
+      }
+      }
+      
+      
     }
-}
 
-    window.addEventListener("resize", ajustarMedidor);
+
+
 
 
 });
